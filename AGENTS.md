@@ -41,3 +41,5 @@
 ---
 
 **Update this file as the project evolves to keep agent guidance current.**
+
+_AI generated_
