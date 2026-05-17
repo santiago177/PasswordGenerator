@@ -10,6 +10,7 @@
 - `manage.py`: Django project management script.
 - `PasswordGenerator/`: Django project settings and URLs.
 - `generator/`: Django app for password generation logic.
+- `generator/templates/generator/password_generator.html`: Django template for the password generation UI.
 - `requirements.txt`: Python dependencies (now includes Django).
 - `README.md`: Project description, requirements, and intended usage.
 
@@ -24,6 +25,7 @@
 - Place Django app logic in `generator/`.
 - Use standard Django and Python idioms; no custom frameworks or patterns are in use.
 - No external dependencies required beyond Django (as of now).
+- The password generation UI is implemented as a Django template in `generator/templates/generator/password_generator.html` and rendered by the `password_generator_ui` view.
 
 ## Extending the Project
 - Implement password generation logic in Django views within `generator/views.py`.
@@ -34,9 +36,11 @@
 - None currently. No external APIs, services, or libraries are integrated.
 
 ## Example: Adding Password Generation
-- Define a Django view (e.g., `generate_password_view`) in `generator/views.py`.
-- Use Python's `random` or `secrets` module for secure password generation.
-- Wire up the view in `generator/urls.py` and include it in the project URLs.
+- Define the UI view (`password_generator_ui`) and the password generation endpoint (`generate_password_view`) in `generator/views.py`.
+- The UI is served at `/` and the password generation endpoint at `/generate-password/` (see `generator/urls.py`).
+- The UI uses the template `generator/templates/generator/password_generator.html` and fetches passwords via AJAX from the endpoint.
+- Use Python's `secrets` module for secure password generation.
+- Wire up the views in `generator/urls.py` and include them in the project URLs.
 
 ---
 

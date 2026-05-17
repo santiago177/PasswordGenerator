@@ -1,7 +1,11 @@
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.decorators.http import require_GET
 import secrets
 import string
+
+def password_generator_ui(request):
+	return render(request, 'generator/password_generator.html')
 
 @require_GET
 def generate_password_view(request):
